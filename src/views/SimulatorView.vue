@@ -4,6 +4,6 @@
 <template>
   <main>
     <p class="">Simulator</p>
-    <GolSimulator></GolSimulator>
+    <GolSimulator :maxX="30" :maxY="30"></GolSimulator>
   </main>
 </template>
