@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-x-4">
+  <div class="grid text-center gap-y-4">
     <div class="grid">
       <div v-for="x in maxX" :key="x">
         <div class="flex">
@@ -9,12 +9,13 @@
         </div>
       </div>
     </div>
-    <button @click="nextIteration">Suivant</button>
-    <button @click="startInterval" v-if="!isIntervalRunning">Démarrer Interval</button>
-    <button @click="stopInterval" v-else>Arrêter Interval</button>
-    <button @click="reset">Reset</button>
-
     <p>Nombre d'itérations {{ iterations }}</p>
+    <div class="flex justify-center gap-x-4">
+      <button @click="nextIteration" class="p-2 bg-pink-200 hover:bg-pink-700">Suivant</button>
+      <button @click="startInterval" v-if="!isIntervalRunning" class="p-2 bg-pink-200 hover:bg-pink-700">Démarrer Interval</button>
+      <button @click="stopInterval" v-else class="p-2 bg-pink-200 hover:bg-pink-700">Arrêter Interval</button>
+      <button @click="reset" class="p-2 bg-pink-200 hover:bg-pink-700">Reset</button>
+    </div>
   </div>
 
 </template>

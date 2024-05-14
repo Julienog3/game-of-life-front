@@ -4,6 +4,8 @@
 <template>
   <main>
     <p class="">Simulator</p>
-    <GolSimulator :maxX="30" :maxY="30"></GolSimulator>
+    <div class="flex justify-center">
+      <GolSimulator :maxX="30" :maxY="70"></GolSimulator>
+    </div>
   </main>
 </template>
