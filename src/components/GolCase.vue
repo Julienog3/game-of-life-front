@@ -1,6 +1,9 @@
 <template>
-  <div :id="`${x}-${y}`" @click="handleClick(x,y)" :class="{ 'bg-pink-500':inLife  }" class="w-[20px] h-[20px] border border-black">
+  <div :style="styleCaseDeath" class="w-[30px] h-[30px] border border-gray-300 flex justify-center items-center">
+    <div :id="`${x}-${y}`" @click="handleClick(x,y)" :style="styleCaseInLife" class="w-[25px] h-[25px] rounded">
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -9,7 +12,21 @@ export default {
     x: Number,
     y: Number,
     handleClick: Function,
-    inLife: Boolean
+    inLife: Boolean,
+    colorCaseDeath: String,
+    colorCaseInLife: String
+  },
+  computed: {
+    styleCaseDeath() {
+      return {
+        backgroundColor: this.colorCaseDeath
+      };
+    },
+    styleCaseInLife() {
+      return {
+        backgroundColor: this.inLife ? this.colorCaseInLife : '',
+      };
+    }
   }
 };
 </script>

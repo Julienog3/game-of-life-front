@@ -2,10 +2,7 @@
 </script>
 
 <template>
-  <main>
-    <p class="">Simulator</p>
-    <div class="flex justify-center">
-      <GolSimulator :maxX="30" :maxY="70"></GolSimulator>
-    </div>
-  </main>
+  <div class="flex justify-center">
+    <GolSimulator :maxX="15" :maxY="50"></GolSimulator>
+  </div>
 </template>

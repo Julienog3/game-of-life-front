@@ -3,78 +3,45 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav class="flex gap-x-4">
-        <RouterLink to="/">Home</RouterLink>
+  <header class="grid grid-cols-12 mt-4 mb-8">
+    <div class="col-start-2 col-span-3">
+      <RouterLink to="/">
+        <div class="flex items-center gap-x-4">
+          <div class="w-[40px] h-[40px] rounded bg-primary">
+          </div>
+          <p class="font-bold text-xl">Game of Life</p>
+        </div>
+      </RouterLink>
+    </div>
+    <nav class="col-span-7 flex items-center justify-end gap-x-4">
+      <RouterLink to="/presentation">Présentation</RouterLink>
+      <RouterLink to="/glossary">Glossaire</RouterLink>
+      <RouterLink to="/simulator">Simulateur</RouterLink>
+      <div class="bg-primary p-4 rounded text-white">
+        Se connecter
+      </div>
+    </nav>
+  </header>
+
+  <main class="grid grid-cols-12">
+    <div class="col-start-2 col-span-10">
+      <RouterView />
+    </div>
+  </main>
+
+  <footer class="mt-12 px-8">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-x-4">
+        <div class="w-[40px] h-[40px] rounded bg-primary">
+        </div>
+        <p class="font-bold text-xl">Game of Life</p>
+      </div>
+      <nav class="flex items-center gap-x-4">
+        <RouterLink to="/presentation">Présentation</RouterLink>
+        <RouterLink to="/glossary">Glossaire</RouterLink>
         <RouterLink to="/simulator">Simulateur</RouterLink>
       </nav>
     </div>
-  </header>
-
-  <RouterView />
+    <p class="mt-8">© 2024 Game of life, All right reserved</p>
+  </footer>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
