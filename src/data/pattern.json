@@ -1,0 +1,81 @@
+{
+  "patterns":[
+    {
+      "id": 1,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":3,
+      "col":3,
+      "pattern":[1,1,1,0,1,0,0,0,1]
+    },
+    {
+      "id": 2,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":4,
+      "col":4,
+      "pattern":[1,1,1,0,1,0,0,0,1,1,1,0,1,0,0,1]
+    },
+    {
+      "id": 3,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":7,
+      "col":5,
+      "pattern":[1,1,1,0,1,0,1,0,0,0,1,0,1,1,0,1,0,0,0,0,0,1,1,1,0,1,0,1,0,0,0,0,1,1,0]
+    },
+    {
+      "id": 4,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":5,
+      "col":7,
+      "pattern":[1,1,1,0,1,0,1,0,0,0,1,0,1,1,0,1,0,0,0,0,0,1,1,1,0,1,0,1,0,0,0,0,1,1,0]
+    },
+    {
+      "id": 5,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":3,
+      "col":3,
+      "pattern":[1,1,1,0,0,1,0,1,0]
+    },
+    {
+      "id": 6,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":7,
+      "col":4,
+      "pattern":[0,0,1,0,0,1,0,1,1,0,0,1,0,1,1,0,1,0,0,1,1,0,1,0,0,1,0,0]
+    },
+    {
+      "id": 7,
+      "name":"test",
+      "type":"Glider",
+      "description":"Lorem impsum etd jpz dpzjf ckpz djfzjdbpzndnp ozon dpz",
+      "line":9,
+      "col":36,
+      "pattern":
+      [
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+        0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,
+        1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        1,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+      ]
+
+
+    }
+  ]
+}
+

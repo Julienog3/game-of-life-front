@@ -2,9 +2,9 @@
   <div class="grid gap-y-4">
     <div class="flex gap-x-4">
       <div class="grid">
-        <div v-for="x in maxX" :key="x">
+        <div v-if="grid" v-for="x in maxLine" :key="x">
           <div class="flex">
-            <div v-for="y in maxY" :key="y">
+            <div v-for="y in maxCol" :key="y">
               <GolCase
                   :x="`${x-1}`"
                   :y="`${y-1}`"
@@ -78,21 +78,53 @@
 
 <script>
 import GolCase from './GolCase.vue'
+import patternJSON from "@/data/pattern.json";
 
 export default {
   props: {
-    maxX: Number,
-    maxY: Number,
+    maxLine: Number,
+    maxCol: Number,
   },
   data() {
     return {
-      grid: Array.from({ length: this.maxX }, () => Array.from({ length: this.maxY }).fill(false)),
+      grid: null,
       intervalID: null,
       isIntervalRunning: false,
       iterations: 0,
       colorCaseDeath: "#FFFFFF",
-      colorCaseInLife: "#FFFF00"
+      colorCaseInLife: "#FFFF00",
+      pattern: null,
     };
+  },
+  mounted() {
+    this.grid = Array.from({ length: this.maxLine }, () => Array.from({ length: this.maxCol }).fill(false));
+    if(this.$route.query.idPattern){
+      const idPattern = this.$route.query.idPattern;
+      this.pattern = patternJSON.patterns.filter(pattern=>pattern.id === parseInt(idPattern))[0];
+
+      //On formate le pattern
+      let position=0;
+      let pattern2D=[];
+      for (let i=0;i<this.pattern.line;i++){
+        let line = [];
+        for (let j=0;j<this.pattern.col;j++){
+          line.push(!!this.pattern.pattern[position]);
+          position++;
+        }
+        pattern2D.push(line);
+      }
+      this.pattern.pattern = pattern2D;
+
+      //On cherche la position afin de centrer le patten chargé
+      const postionLine = Math.round((this.maxLine-this.pattern.line)/2);
+      const postionCol = Math.round((this.maxCol-this.pattern.col)/2);
+
+      for (let i=0;i<this.pattern.line;i++){
+        for (let j=0;j<this.pattern.col;j++){
+          this.grid[i+postionLine][j+postionCol] = this.pattern.pattern[i][j];
+        }
+      }
+    }
   },
   methods: {
     handleClick(x,y) {
@@ -107,20 +139,20 @@ export default {
       this.isIntervalRunning = false;
     },
     reset() {
-      this.grid = Array.from({ length: this.maxX }, () => Array.from({ length: this.maxY }).fill(false));
+      this.grid = Array.from({ length: this.maxLine }, () => Array.from({ length: this.maxCol }).fill(false));
       if(this.isIntervalRunning){
         this.stopInterval();
       }
       this.iterations = 0;
     },
     nextIteration() {
-      let gridNow = Array.from({ length: this.maxX }, () => Array.from({ length: this.maxY }).fill(false));
+      let gridNow = Array.from({ length: this.maxLine }, () => Array.from({ length: this.maxCol }).fill(false));
       this.grid.forEach((line, x) => {
         line.forEach((cellStatut, y) => {
           let cellSuroundInLife = 0;
           for (let i=-1;i<2;i++){
             for (let j=-1;j<2;j++){
-              if(x != 0 && x != this.maxX-1 && y != 0 && y != this.maxY-1 && (i != 0 || j != 0) && this.grid[x+(i)][y+(j)] == true){
+              if(x != 0 && x != this.maxLine-1 && y != 0 && y != this.maxCol-1 && (i != 0 || j != 0) && this.grid[x+(i)][y+(j)] == true){
                 cellSuroundInLife = cellSuroundInLife+1;
               }
             }

@@ -1,8 +1,12 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <div class="flex justify-center">
-    <GolSimulator :maxX="15" :maxY="50"></GolSimulator>
+    <GolSimulator :maxLine="20" :maxCol="50"></GolSimulator>
   </div>
 </template>
+
+<script>
+import GolSimulator from '@/components/GolSimulator.vue';
+export default {
+  components: {GolSimulator},
+};
+</script>

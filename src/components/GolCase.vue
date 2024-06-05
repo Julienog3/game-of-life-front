@@ -9,8 +9,8 @@
 <script>
 export default {
   props: {
-    x: Number,
-    y: Number,
+    x: String,
+    y: String,
     handleClick: Function,
     inLife: Boolean,
     colorCaseDeath: String,
