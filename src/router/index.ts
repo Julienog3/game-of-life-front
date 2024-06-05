@@ -5,7 +5,10 @@ import PresentationView from '../views/PresentationView.vue'
 import GlossaryView from '../views/GlossaryView.vue'
 
 import AdminDashboardView from '../views/admin/AdminDashboardView.vue'
-import AdminPatternView from '../views/admin/AdminPatternView.vue'
+
+import AdminPatternListView from '../views/admin/pattern/AdminPatternListView.vue'
+import AdminPatternNewView from '../views/admin/pattern/AdminPatternNewView.vue'
+
 import AdminTypeView from '../views/admin/AdminTypeView.vue'
 import AdminUserView from '../views/admin/AdminUserView.vue'
 import AdminHelpView from '../views/admin/AdminHelpView.vue'
@@ -41,7 +44,12 @@ const router = createRouter({
     {
       path: '/admin/pattern',
       name: 'pattern',
-      component: AdminPatternView,
+      component: AdminPatternListView,
+    },
+    {
+      path: '/admin/pattern/new',
+      name: 'pattern_new',
+      component: AdminPatternNewView,
     },
     {
       path: '/admin/type',
