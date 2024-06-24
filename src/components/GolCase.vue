@@ -1,6 +1,6 @@
 <template>
-  <div :style="styleCaseDeath" class="w-[30px] h-[30px] border border-gray-300 flex justify-center items-center">
-    <div :id="`${x}-${y}`" @click="handleClick(x,y)" :style="styleCaseInLife" class="w-[25px] h-[25px] rounded">
+  <div :style="styleCaseDeath" class="w-[20px] h-[20px] border border-gray-300 flex justify-center items-center">
+    <div :id="`${x}-${y}`" @click="handleClick(x,y)" :style="styleCaseInLife" class="w-[15px] h-[15px] rounded">
     </div>
   </div>
 

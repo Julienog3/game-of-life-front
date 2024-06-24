@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SimulatorView from '../views/SimulatorView.vue'
 import PresentationView from '../views/PresentationView.vue'
 import GlossaryView from '../views/GlossaryView.vue'
+import PatternView from '../views/PatternView.vue'
 
 import AdminDashboardView from '../views/admin/AdminDashboardView.vue'
 
@@ -32,9 +33,14 @@ const router = createRouter({
       component: PresentationView
     },
     {
-      path: '/glossary',
-      name: 'glossary',
+      path: '/pattern',
+      name: 'pattern',
       component: GlossaryView
+    },
+    {
+      path: '/pattern/:id',
+      name: 'pattern_view',
+      component: PatternView
     },
     {
       path: '/admin',
@@ -43,27 +49,27 @@ const router = createRouter({
     },
     {
       path: '/admin/pattern',
-      name: 'pattern',
+      name: 'admin_pattern',
       component: AdminPatternListView,
     },
     {
       path: '/admin/pattern/new',
-      name: 'pattern_new',
+      name: 'admin_pattern_new',
       component: AdminPatternNewView,
     },
     {
       path: '/admin/type',
-      name: 'type',
+      name: 'admin_type',
       component: AdminTypeView,
     },
     {
       path: '/admin/user',
-      name: 'user',
+      name: 'admin_user',
       component: AdminUserView,
     },
     {
       path: '/admin/help',
-      name: 'help',
+      name: 'admin_help',
       component: AdminHelpView,
     },
   ]

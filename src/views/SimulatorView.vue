@@ -1,6 +1,8 @@
 <template>
-  <div class="flex justify-center">
-    <GolSimulator :maxLine="20" :maxCol="50"></GolSimulator>
+  <div class="container px-12 mx-auto">
+    <div class="flex justify-center">
+      <GolSimulator :maxLine="20" :maxCol="50"></GolSimulator>
+    </div>
   </div>
 </template>
 
