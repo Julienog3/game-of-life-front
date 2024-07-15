@@ -12,7 +12,7 @@
     title="Patterns"
     description="Lorem ipsum dolores sit amet"
     textBtn="pattern"
-    url="/admin/pattern/new"
+    url="/admin/patterns/new"
   />
 
   <GolListPattern :patterns="patterns" />

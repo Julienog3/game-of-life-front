@@ -9,9 +9,12 @@ import AdminDashboardView from '../views/admin/AdminDashboardView.vue'
 import AdminPatternListView from '../views/admin/pattern/AdminPatternListView.vue'
 import AdminPatternNewView from '../views/admin/pattern/AdminPatternNewView.vue'
 
-import AdminTypeView from '../views/admin/AdminTypeView.vue'
+import AdminConfigurationsListView from '../views/admin/configurations/AdminConfigurationsListView.vue'
+import AdminConfigurationsNewView from '../views/admin/configurations/AdminConfigurationsNewView.vue'
+import AdminConfigurationsUpdateView from '../views/admin/configurations/AdminConfigurationsUpdateView.vue'
 import AdminUserView from '../views/admin/AdminUserView.vue'
 import AdminHelpView from '../views/admin/AdminHelpView.vue'
+import AdminLayout from '@/components/layouts/AdminLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,33 +42,55 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: AdminDashboardView,
+      component: AdminLayout,
+      children: [
+        {
+          path: '',
+          name: 'dashboard',
+          component: AdminDashboardView,
+        },
+        {
+          path: 'patterns',
+          name: 'patterns',
+          component: AdminPatternListView,
+          children: [
+            
+          ]
+        },
+        {
+          path: 'patterns/new',
+          name: 'pattern_new',
+          component: AdminPatternNewView,
+        },
+        {
+          path: 'types',
+          name: 'types',
+          component: AdminConfigurationsListView,
+        },
+        {
+          path: 'types/new',
+          name: 'types_new',
+          component: AdminConfigurationsNewView,
+        },
+        {
+          path: 'types/:id/update',
+          name: 'types_update',
+          component: AdminConfigurationsUpdateView,
+        },
+        {
+          path: 'users',
+          name: 'users',
+          component: AdminUserView,
+        },
+        {
+          path: 'help',
+          name: 'help',
+          component: AdminHelpView,
+        },
+      ]
     },
-    {
-      path: '/admin/pattern',
-      name: 'pattern',
-      component: AdminPatternListView,
-    },
-    {
-      path: '/admin/pattern/new',
-      name: 'pattern_new',
-      component: AdminPatternNewView,
-    },
-    {
-      path: '/admin/type',
-      name: 'type',
-      component: AdminTypeView,
-    },
-    {
-      path: '/admin/user',
-      name: 'user',
-      component: AdminUserView,
-    },
-    {
-      path: '/admin/help',
-      name: 'help',
-      component: AdminHelpView,
-    },
+    
+    
   ]
 })
 

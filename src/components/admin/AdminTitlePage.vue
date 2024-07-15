@@ -31,9 +31,9 @@
           stroke-linejoin="round"
         />
       </svg>
-      <Router-link :to="url">
+      <router-link :to="url">
         <button>Ajouter un {{ textBtn }}</button>
-      </Router-link>
+      </router-link>
     </div>
   </div>
 </template>
