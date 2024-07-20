@@ -12,7 +12,7 @@ import AdminPatternNewView from '../views/admin/pattern/AdminPatternNewView.vue'
 import AdminConfigurationsListView from '../views/admin/configurations/AdminConfigurationsListView.vue'
 import AdminConfigurationsNewView from '../views/admin/configurations/AdminConfigurationsNewView.vue'
 import AdminConfigurationsUpdateView from '../views/admin/configurations/AdminConfigurationsUpdateView.vue'
-import AdminUserView from '../views/admin/AdminUserView.vue'
+import AdminUsersListView from '../views/admin/users/AdminUsersListView.vue'
 import AdminHelpView from '../views/admin/AdminHelpView.vue'
 import AdminLayout from '@/components/layouts/AdminLayout.vue'
 
@@ -53,9 +53,6 @@ const router = createRouter({
           path: 'patterns',
           name: 'patterns',
           component: AdminPatternListView,
-          children: [
-            
-          ]
         },
         {
           path: 'patterns/new',
@@ -80,7 +77,7 @@ const router = createRouter({
         {
           path: 'users',
           name: 'users',
-          component: AdminUserView,
+          component: AdminUsersListView,
         },
         {
           path: 'help',

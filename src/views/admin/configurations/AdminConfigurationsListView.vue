@@ -7,11 +7,12 @@
       <button @click="removeConfiguration">Supprimer</button>
     </template>
   </GolModal>
-  <AdminBreadcrumb :page="'Types'" />
+  <AdminBreadcrumb page="Types" />
   <AdminTitlePage
-    :title="'Types'"
-    :description="'Lorem ipsum dolores sit amet'"
-    :textBtn="'type'"
+    title="Types"
+    description="Lorem ipsum dolores sit amet"
+    textBtn="type"
+    url="types/new"
   />
   <AdminConfigurationsList
     v-if="configurations"

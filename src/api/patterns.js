@@ -2,7 +2,6 @@ const BASE_URL = import.meta.env.VITE_API_URL
 
 export async function getPatterns()  {
   const url = new URL('api/patterns', BASE_URL)
-  console.table(url)
   return await fetch(url).then((res) => res.json())
 }
 
