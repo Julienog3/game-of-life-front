@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SimulatorView from '../views/SimulatorView.vue'
 import PresentationView from '../views/PresentationView.vue'
 import GlossaryView from '../views/GlossaryView.vue'
+import LoginView from '../views/LoginView.vue'
 
 import AdminDashboardView from '../views/admin/AdminDashboardView.vue'
 
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/presentation',
       name: 'presentation',
       component: PresentationView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
     },
     {
       path: '/glossary',

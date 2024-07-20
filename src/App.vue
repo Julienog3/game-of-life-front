@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isAdminPage"><router-view></router-view></div>
+  <div v-if="isAdminPage || isLoginPage"><router-view></router-view></div>
   <div v-else>
     <header class="grid grid-cols-12 mt-4 mb-8">
       <div class="col-start-2 col-span-3">
@@ -14,7 +14,7 @@
         <RouterLink to="/presentation">Présentation</RouterLink>
         <RouterLink to="/glossary">Glossaire</RouterLink>
         <RouterLink to="/simulator">Simulateur</RouterLink>
-        <div class="bg-primary p-4 rounded text-white">Se connecter</div>
+        <RouterLink to="/login" class="bg-primary p-4 rounded text-white">Se connecter</RouterLink>
         <RouterLink to="/admin">Admin</RouterLink>
       </nav>
     </header>
@@ -47,6 +47,9 @@ export default {
   computed: {
     isAdminPage() {
       return this.$route.path.includes("admin");
+    },
+    isLoginPage() {
+      return this.$route.path.includes("login");
     },
   },
 };

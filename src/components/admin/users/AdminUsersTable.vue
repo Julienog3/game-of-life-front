@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <AdminUsersRow v-for="user in users" :user="user">
+      <AdminUsersRow v-for="user in users" :user="user"/>
     </tbody>
   </table>
 </template>
