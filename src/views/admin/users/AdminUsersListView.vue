@@ -4,7 +4,7 @@
       <p>Êtes-vous sûr de vouloir supprimer ce utilisateur ?</p>
     </template>
     <template #footer>
-      <!-- <button @click="removeConfiguration">Supprimer</button> -->
+      <button @click="removeUser">Supprimer</button>
     </template>
   </GolModal>
   <AdminBreadcrumb page="Utilisateurs" />
@@ -20,7 +20,7 @@
 <script>
 import AdminBreadcrumb from "@/components/admin/AdminBreadcrumb.vue";
 import AdminTitlePage from "@/components/admin/AdminTitlePage.vue";
-import { getUsers } from "@/api/users.js";
+import { getUsers, deleteUser } from "@/api/users.js";
 import AdminUsersTable from "@/components/admin/users/AdminUsersTable.vue";
 import GolModal from "@/components/ui/GolModal.vue";
 import { useModalStore } from "@/stores/modal.js";
@@ -42,14 +42,14 @@ export default {
     await this.fetchUsers();
   },
   methods: {
-    // async removeConfiguration() {
-    //   if (!this.modalStore.data.id) return;
+    async removeUser() {
+      if (!this.modalStore.data.id) return;
 
-    //   await deleteConfiguration(this.modalStore.data.id).then(async () => {
-    //     this.modalStore.close();
-    //     await this.fetchConfigurations();
-    //   });
-    // },
+      await deleteUser(this.modalStore.data.id).then(async () => {
+        this.modalStore.close();
+        await this.fetchUsers();
+      });
+    },
     async fetchUsers() {
       this.users = await getUsers();
     },

@@ -16,6 +16,8 @@ import AdminConfigurationsUpdateView from '../views/admin/configurations/AdminCo
 import AdminUsersListView from '../views/admin/users/AdminUsersListView.vue'
 import AdminHelpView from '../views/admin/AdminHelpView.vue'
 import AdminLayout from '@/components/layouts/AdminLayout.vue'
+import AdminUsersNewView from "../views/admin/users/AdminUsersNewView.vue"
+import AdminUsersUpdateView from "../views/admin/users/AdminUsersUpdateView.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -84,6 +86,16 @@ const router = createRouter({
           path: 'users',
           name: 'users',
           component: AdminUsersListView,
+        },
+        {
+          path: 'users/new',
+          name: 'users_new',
+          component: AdminUsersNewView,
+        },
+        {
+          path: 'users/:id/update',
+          name: 'users_update',
+          component: AdminUsersUpdateView,
         },
         {
           path: 'help',
