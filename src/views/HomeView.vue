@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="mt-20">
+  <main class="min-h-screen flex flex-col justify-center">
     <div class="grid gap-y-1 ms-12">
       <div class="flex gap-x-1">
         <div class="w-[30px] h-[30px] rounded bg-primary"></div>
@@ -37,6 +37,6 @@
         <div class="w-[30px] h-[30px] rounded"></div>
       </div>
     </div>
-  </div>
+  </main>
 
 </template>

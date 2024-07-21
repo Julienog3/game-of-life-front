@@ -19,6 +19,7 @@ import AdminHelpView from '../views/admin/AdminHelpView.vue'
 import AdminLayout from '@/components/layouts/AdminLayout.vue'
 import AdminUsersNewView from "../views/admin/users/AdminUsersNewView.vue"
 import AdminUsersUpdateView from "../views/admin/users/AdminUsersUpdateView.vue"
+import PatternView from '../views/PatternView.vue'
 
 const isAuthenticated = (to, from, next) => {
   console.log('tezrf', Cookies.get('jwtToken'))
@@ -58,6 +59,11 @@ const router = createRouter({
       path: '/glossary',
       name: 'glossary',
       component: GlossaryView
+    },
+    {
+      path: '/glossary/:id',
+      name: 'pattern_details',
+      component: PatternView
     },
     {
       path: '/admin',

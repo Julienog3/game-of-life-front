@@ -5,6 +5,11 @@ export async function getPatterns()  {
   return await fetch(url).then((res) => res.json())
 }
 
+export async function findPattern(id) {
+  const url = new URL(`api/patterns/${id}`, BASE_URL)
+  return await fetch(url).then((res) => res.json())
+}
+
 export async function createPattern(payload) {
   if (!payload) {
     throw new Error('No payload provided.')

@@ -1,5 +1,8 @@
 <template>
-  <p class="font-bold text-4xl mb-4">Glosaire </p>
+  <div class="flex flex-col mb-4 w-full border-b py-4">
+    <h2 class="font-bold text-4xl">Glossaire</H2>
+    <p>Retrouvez l'ensemble des patterns du wiki.</p>
+  </div>
   <GolListPattern :patterns="patterns" />
 </template>
 
@@ -7,6 +10,7 @@
 import GolListPattern from "@/components/GolListPattern.vue";
 import { getPatterns } from "@/api/patterns.js";
 export default {
+  components: { GolListPattern },
   data() {
     return {
       patterns: null,
@@ -15,7 +19,6 @@ export default {
   async mounted() {
     this.patterns = await getPatterns();
   },
-  components: {GolListPattern},
 };
 </script>
 

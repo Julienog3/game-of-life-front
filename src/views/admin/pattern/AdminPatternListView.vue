@@ -15,7 +15,7 @@
     url="/admin/patterns/new"
   />
 
-  <GolListPattern :patterns="patterns" />
+  <GolListPattern :patterns="patterns" :isAdmin="true" />
 </template>
 
 <script>

@@ -1,52 +1,68 @@
 <template>
-  <div>
-    <div
-      v-if="pattern.pattern"
-      v-for="indexLine in pattern.pattern.length"
-      :key="indexLine"
-    >
-      <div class="flex">
-        <div
-          v-for="indexCase in pattern.pattern[indexLine - 1].length"
-          :key="indexCase"
-        >
+  <RouterLink :to="{ name: 'pattern_details', params: { id: pattern.id } }">
+    <div class="flex flex-col border border-gray-200 w-fit rounded-lg overflow-hidden">
+      <div
+        v-if="pattern.pattern"
+        v-for="indexLine in pattern.pattern.length"
+        :key="indexLine"
+      >
+        <div class="flex">
           <div
-            :style="`width: ${pattern.widthCase}px;height:${pattern.heightCase}px`"
-            class="border border-gray-300 flex justify-center items-center"
+            v-for="indexCase in pattern.pattern[indexLine - 1].length"
+            :key="indexCase"
           >
             <div
-              :style="`width: ${pattern.widthCase / 1.5}px;height:${
-                pattern.heightCase / 1.5
-              }px`"
-              v-if="pattern.pattern[indexLine - 1][indexCase - 1]"
-              class="bg-primary rounded"
-            ></div>
+              :style="`width: ${pattern.widthCase}px;height:${pattern.heightCase}px`"
+              class="border border-gray-300 flex justify-center items-center"
+            >
+              <div
+                :style="`width: ${pattern.widthCase / 1.5}px;height:${
+                  pattern.heightCase / 1.5
+                }px`"
+                v-if="pattern.pattern[indexLine - 1][indexCase - 1]"
+                class="bg-primary rounded"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="p-2 grid gap-y-2">
+        <p class="bg-primarydark text-white px-4 py-2 rounded-full w-fit">
+          {{ pattern.configuration.name }}
+        </p>
+        <p class="text-xl font-bold">{{ pattern.name }}</p>
+        <p class="text-gray-400">{{ pattern.description }}</p>
+        <button v-if="canDelete" class="bg-black text-white rounded w-8 h-8" @click="modalStore.open">S</button>
+      </div>
     </div>
-    <div class="p-2 grid gap-y-2">
-      <p class="bg-primarydark text-white px-4 py-2 rounded-full w-fit">
-        {{ pattern.configuration.name }}
-      </p>
-      <p class="text-xl font-bold">{{ pattern.name }}</p>
-      <p class="text-gray-400">{{ pattern.description }}</p>
-      <button
-        @click="loadInSimulator(pattern.id)"
-        class="bg-primary text-white px-4 py-2 rounded-full w-fit"
-      >
-        Simuler
-      </button>
-    </div>
-  </div>
+  </RouterLink>
 </template>
 
 <script>
+import { useModalStore } from "@/stores/modal";
+import { mapStores } from "pinia";
+import { RouterLink } from "vue-router";
+
 export default {
   props: {
-    pattern: Object,
+    pattern: {
+      type: Object,
+      required: true
+    },
+    canEdit: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    canDelete: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   mounted() {
+    console.log(this.canEdit, this.canDelete)
+
     //On cherche a savoir le ratio de la taille des cases
     const maxWidth = 200;
     const maxHeight = 200;
@@ -143,6 +159,9 @@ export default {
         },
       });
     },
+  },
+  computed: {
+    ...mapStores(useModalStore),
   },
 };
 </script>

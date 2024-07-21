@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import {findPattern} from "@/api/patterns.js";
+import { findPattern } from "@/api/patterns.js";
 import GolPatternVisualisation from "@/components/GolPatternVisualisation.vue";
 import GolPatternDetails from "@/components/GolPatternDetails.vue";
 export default {

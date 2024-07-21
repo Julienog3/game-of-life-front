@@ -1,11 +1,11 @@
 <template>
-  <AdminBreadcrumb :page="'Patterns'" />
+  <AdminBreadcrumb page="Patterns" />
   <AdminTitlePage
-    :title="'Patterns'"
-    :description="'Lorem ipsum dolores sit amet'"
-    :textBtn="'pattern'"
+    title="Patterns"
+    description="Lorem ipsum dolores sit amet"
+    textBtn="pattern"
   />
-  <GolListPattern />
+  <GolListPattern :isAdmin="true" />
 </template>
 
 <script>
