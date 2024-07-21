@@ -4,7 +4,7 @@
       class="fixed r-0 h-full w-[300px] bg-primarydark text-white grid content-between"
     >
       <div>
-        <RouterLink
+        <router-link
           class="px-2 py-6 flex gap-x-2 border-b border-gray-200/30"
           to="/admin"
         >
@@ -31,7 +31,7 @@
             />
           </svg>
           <p>Administration</p>
-        </RouterLink>
+        </router-link>
         <div class="flex flex-col gap-2 p-4">
           <AdminNavItem
             :icon="'boxSVG'"
@@ -52,7 +52,7 @@
       </div>
       <div class="border-t border-gray-200/30 grid gap-y-4 p-4">
         <AdminNavItem :icon="'helpSVG'" :text="'Aide'" :path="'/admin/help'" />
-        <div class="flex gap-x-2 rounded p-4 cursor-pointer bg-primary">
+        <button @click="logoutUser" class="flex gap-x-2 rounded p-4 cursor-pointer bg-primary">
           <svg
             width="24"
             height="24"
@@ -82,8 +82,8 @@
               stroke-linejoin="round"
             />
           </svg>
-          <p>Se déconnecter</p>
-        </div>
+          Se déconnecter
+        </button>
       </div>
     </header>
     <main class="ms-[300px] py-8 px-12">
@@ -94,8 +94,15 @@
 
 <script>
 import AdminNavItem from "@/components/admin/AdminNavItem.vue";
+import { logout } from "@/api/auth.js"
 
 export default {
   components: { AdminNavItem },
+  methods: {
+    async logoutUser() {
+      await logout()
+      return this.$router.push("/");
+    }
+  }
 };
 </script>

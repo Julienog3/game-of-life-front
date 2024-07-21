@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+
 
 <template>
   <div class="grid h-screen justify-center items-center bg-graylight">
@@ -10,22 +9,17 @@
       </div>
     <div class="border rounded-lg p-8 bg-white">
       <p class="text-xl mb-4">Se connecter</p>
-      <form class="grid gap-y-4">
-        <div class="grid gap-y-2">
-          <label>Email</label>
-          <input type="email" id="email" name="email" placeholder="julien@goat.com" class="border rounded p-2 min-w-[400px]">
-        </div>
-        <div class="grid gap-y-2">
-          <label>Mot de passe</label>
-          <input type="password" id="password" name="password" placeholder="*******" class="border rounded p-2 min-w-[400px]">
-        </div>
-        <div class="text-end">
-          <input type="submit" value="Se connecter" class="bg-black w-fit rounded-lg text-white px-4 py-2 hover:bg-primary cursor-pointer">
-        </div>
-      </form>
+      <AuthLoginForm />
     </div>
-    <RouterLink to="/" class="text-center text-sm hover:underline">Retourner sur la page d'acceuil</RouterLink>
+    <router-link to="/" class="text-center text-sm hover:underline">Retourner sur la page d'accueil</router-link>
   </div>
-
   </div>
 </template>
+
+<script>
+import AuthLoginForm from "@/components/auth/AuthLoginForm.vue"
+
+export default {
+  components: { AuthLoginForm }
+}
+</script>

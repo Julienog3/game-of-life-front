@@ -1,8 +1,17 @@
+import Cookies from 'js-cookie'
+
 const BASE_URL = import.meta.env.VITE_API_URL
 
 export async function getUsers()  {
   const url = new URL('api/users', BASE_URL)
-  return await fetch(url).then((res) => res.json())
+  const jwtToken = Cookies.get('jwtToken')
+
+  return await fetch(url, { 
+    credentials: 'include',
+    headers: {
+      'Set-Cookie': `jwtToken=${jwtToken}`
+    }
+  }).then((res) => res.json())
 }
 
 export async function findUser(id) {

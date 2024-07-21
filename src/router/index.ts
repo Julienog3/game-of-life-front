@@ -4,6 +4,7 @@ import SimulatorView from '../views/SimulatorView.vue'
 import PresentationView from '../views/PresentationView.vue'
 import GlossaryView from '../views/GlossaryView.vue'
 import LoginView from '../views/LoginView.vue'
+import Cookies from 'js-cookie'
 
 import AdminDashboardView from '../views/admin/AdminDashboardView.vue'
 
@@ -18,6 +19,17 @@ import AdminHelpView from '../views/admin/AdminHelpView.vue'
 import AdminLayout from '@/components/layouts/AdminLayout.vue'
 import AdminUsersNewView from "../views/admin/users/AdminUsersNewView.vue"
 import AdminUsersUpdateView from "../views/admin/users/AdminUsersUpdateView.vue"
+
+const isAuthenticated = (to, from, next) => {
+  console.log('tezrf', Cookies.get('jwtToken'))
+ if (Cookies.get('jwtToken')) {
+   next();
+   return;
+ }
+ router.push({ 
+   name: 'login',
+ });
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +63,7 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: AdminLayout,
+      beforeEnter: isAuthenticated,
       children: [
         {
           path: '',
