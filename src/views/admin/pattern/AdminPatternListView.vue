@@ -15,13 +15,13 @@
     url="/admin/patterns/new"
   />
 
-  <GolListPattern :patterns="patterns" :isAdmin="true" />
+  <GolPatternsList :patterns="patterns" :isAdmin="true" />
 </template>
 
 <script>
 import AdminBreadcrumb from "@/components/admin/AdminBreadcrumb.vue";
 import AdminTitlePage from "@/components/admin/AdminTitlePage.vue";
-import GolListPattern from "@/components/GolListPattern.vue";
+import GolPatternsList from "@/components/patterns/GolPatternsList.vue";
 import { getPatterns } from "@/api/patterns.js";
 import GolModal from "@/components/ui/GolModal.vue";
 
@@ -34,6 +34,6 @@ export default {
   async mounted() {
     this.patterns = await getPatterns();
   },
-  components: { AdminBreadcrumb, AdminTitlePage, GolListPattern, GolModal },
+  components: { AdminBreadcrumb, AdminTitlePage, GolPatternsList, GolModal },
 };
 </script>

@@ -3,14 +3,14 @@
     <h2 class="font-bold text-4xl">Glossaire</H2>
     <p>Retrouvez l'ensemble des patterns du wiki.</p>
   </div>
-  <GolListPattern :patterns="patterns" />
+  <GolPatternsList :patterns="patterns" />
 </template>
 
 <script>
-import GolListPattern from "@/components/GolListPattern.vue";
+import GolPatternsList from "@/components/patterns/GolPatternsList.vue";
 import { getPatterns } from "@/api/patterns.js";
 export default {
-  components: { GolListPattern },
+  components: { GolPatternsList },
   data() {
     return {
       patterns: null,

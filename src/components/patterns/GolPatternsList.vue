@@ -1,5 +1,5 @@
 <template>
-  <ul class="grid grid-cols-4 gap-x-8 gap-y-4">
+  <ul class="grid grid-cols-4 gap-4">
     <li
       v-if="patterns"
       v-for="pattern in patterns"

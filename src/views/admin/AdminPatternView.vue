@@ -5,14 +5,14 @@
     description="Lorem ipsum dolores sit amet"
     textBtn="pattern"
   />
-  <GolListPattern :isAdmin="true" />
+  <GolPatternsList :isAdmin="true" />
 </template>
 
 <script>
 import AdminBreadcrumb from "@/components/admin/AdminBreadcrumb.vue";
 import AdminTitlePage from "@/components/admin/AdminTitlePage.vue";
-import GolListPattern from "@/components/GolListPattern.vue";
+import GolPatternsList from "@/components/patterns/GolPatternsList.vue";
 export default {
-  components: { AdminBreadcrumb, AdminTitlePage, GolListPattern },
+  components: { AdminBreadcrumb, AdminTitlePage, GolPatternsList },
 };
 </script>

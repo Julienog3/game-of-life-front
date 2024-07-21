@@ -9,6 +9,16 @@
           placeholder="Nom du pattern"
         />
       </div>
+      <div v-if="configurations" class="flex flex-col gap-2 items-start">
+        <label class="font-medium">Type de configuration</label>
+        <select
+          class="border border-gray-200 rounded p-2 cursor-pointer min-w-60"
+          v-model="newPattern.configurationId"
+          placeholder="Sélectionner un type"
+        >
+          <option v-for="configuration in configurations" :key="configuration.id" :value="configuration.id">{{ configuration.name }}</option>
+        </select>
+      </div>
       <div class="flex flex-col gap-2 items-start">
         <label class="font-medium">Description</label>
         <textarea
@@ -57,6 +67,7 @@
 <script>
 import { createPattern } from "@/api/patterns.js";
 import GolSimulator from "@/components/GolSimulator.vue";
+import { getConfigurations } from "@/api/configurations.js"
 
 export default {
   components: { GolSimulator },
@@ -68,6 +79,7 @@ export default {
   },
   data() {
     return {
+      configurations: [],
       newPattern: {
         name: "",
         description: "",
@@ -76,10 +88,13 @@ export default {
         boundingX: 5,
         boundingY: 5,
         speed: 0,
-        configurationId: 1,
+        configurationId: null,
         pattern: [],
       },
     };
+  },
+  async mounted() {
+     this.configurations = await getConfigurations();
   },
   computed: {
     cellsLength() {
