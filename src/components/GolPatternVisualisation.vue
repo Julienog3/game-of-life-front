@@ -25,19 +25,6 @@
         </div>
       </div>
     </div>
-    <div class="p-2 grid gap-y-2">
-      <p class="bg-primarydark text-white px-4 py-2 rounded-full w-fit">
-        {{ pattern.configuration.name }}
-      </p>
-      <p class="text-xl font-bold">{{ pattern.name }}</p>
-      <p class="text-gray-400">{{ pattern.description }}</p>
-      <button
-        @click="loadInSimulator(pattern.id)"
-        class="bg-primary text-white px-4 py-2 rounded-full w-fit"
-      >
-        Simuler
-      </button>
-    </div>
   </div>
 </template>
 
@@ -47,9 +34,9 @@ export default {
     pattern: Object,
   },
   mounted() {
-    //On cherche a savoir le ratio de la taille des cases
-    const maxWidth = 200;
-    const maxHeight = 200;
+    //On cherche a savoir le ration de la taille des cases
+    const maxWidth = 250;
+    const maxHeight = 250;
 
     //On regarde si le pattern n'est pas carré afin de le rendre carré
     let regulateWidth = 0;
@@ -133,16 +120,6 @@ export default {
       }
     }
     this.pattern.pattern = pattern2D;
-  },
-  methods: {
-    loadInSimulator(idPattern) {
-      this.$router.push({
-        path: "/simulator",
-        query: {
-          idPattern: idPattern,
-        },
-      });
-    },
   },
 };
 </script>

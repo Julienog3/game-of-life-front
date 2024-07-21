@@ -65,11 +65,11 @@
       <div class="rounded border border-gray-200 flex justify-center gap-x-4 w-fit p-4">
         <div class="flex gap-x-4 items-center">
           <input v-model="colorCaseDeath" type="color" class="h-[50px]">
-          <label>Couleur cellules vivantes</label>
+          <label>Couleur cellules mortes</label>
         </div>
         <div class="flex gap-x-4 items-center">
           <input v-model="colorCaseInLife" type="color" class="h-[50px]">
-          <label>Couleur cellules mortes</label>
+          <label>Couleur cellules vivantes</label>
         </div>
       </div>
     </div>

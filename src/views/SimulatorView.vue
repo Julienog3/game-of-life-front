@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <GolSimulator :maxLine="20" :maxCol="50"></GolSimulator>
+    <GolSimulator :maxLine="15" :maxCol="40"></GolSimulator>
   </div>
 </template>
 
