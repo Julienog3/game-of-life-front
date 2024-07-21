@@ -4,7 +4,7 @@
       <p>Êtes-vous sûr de vouloir supprimer ce pattern ?</p>
     </template>
     <template #footer>
-      <p>footer</p>
+      <GolButton @click="removePattern" variant="danger">Supprimer</GolButton>
     </template>
   </GolModal>
   <AdminBreadcrumb page="Patterns" />
@@ -24,6 +24,7 @@ import AdminTitlePage from "@/components/admin/AdminTitlePage.vue";
 import GolPatternsList from "@/components/patterns/GolPatternsList.vue";
 import { getPatterns } from "@/api/patterns.js";
 import GolModal from "@/components/ui/GolModal.vue";
+import GolButton from "@/components/ui/GolButton.vue";
 
 export default {
   data() {
@@ -32,8 +33,21 @@ export default {
     };
   },
   async mounted() {
-    this.patterns = await getPatterns();
+    await this.fetchPatterns()
   },
-  components: { AdminBreadcrumb, AdminTitlePage, GolPatternsList, GolModal },
+  methods: {
+    async fetchPatterns() {
+      this.patterns = await getPatterns();
+    },
+    async removePattern() {
+      if (!this.modalStore.data.id) return;
+
+      await deletePattern(this.modalStore.data.id).then(async () => {
+        this.modalStore.close();
+        await this.fetchPatterns();
+      });
+    },
+  },
+  components: { AdminBreadcrumb, AdminTitlePage, GolPatternsList, GolModal, GolButton },
 };
 </script>

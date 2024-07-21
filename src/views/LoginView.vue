@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="grid h-screen justify-center items-center bg-graylight">
+  <div class="grid h-screen justify-center items-center bg-bgGray">
     <div class="grid gap-y-4">
       <div class="flex items-center justify-center gap-x-4">
         <div class="w-[40px] h-[40px] rounded bg-primary"></div>

@@ -1,16 +1,22 @@
 <template>
   <RouterLink :to="{ name: 'pattern_details', params: { id: pattern.id } }">
-    <article class="flex flex-col border border-gray-200 rounded-lg overflow-hidden">
+    <article class="flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow transition ease-in-out">
       <GolPatternVisualisation :pattern="pattern"/>
-      <div class="p-2 grid gap-y-2">
-        <span class="bg-primarydark text-white px-4 py-2 rounded-full w-fit">
+      <div class="flex flex-col gap-2 p-4">
+        <span class="bg-primarydark text-white px-4 py-2 rounded-full w-fit text-sm">
           {{ pattern.configuration.name }}
         </span>
-        <h3 class="text-xl font-bold">{{ pattern.name }}</h3>
-        <p class="text-gray-400">{{ pattern.description }}</p>
+        <div class="flex flex-col">
+          <h3 class="text-xl font-bold">{{ pattern.name }}</h3>
+          <p class="text-gray-400">{{ pattern.description }}</p>
+        </div>
         <div class="ml-auto flex gap-2">
-          <button v-if="canDelete" class="bg-black text-white rounded w-8 h-8" @click="modalStore.open">S</button>
-          <button v-if="canDelete" class="bg-black text-white rounded w-8 h-8" @click="modalStore.open">S</button>
+          <GolButton v-if="canEdit" @click="handleEdit" variant="secondary">
+            <img src="/svg/edit.svg" alt="Edition" />
+          </GolButton>
+          <GolButton v-if="canDelete" @click="handleDelete" variant="primary">
+            <img src="/svg/trash.svg" alt="Edition" />
+          </GolButton>
         </div>
       </div>
     </article>
@@ -22,9 +28,10 @@ import { useModalStore } from "@/stores/modal";
 import { mapStores } from "pinia";
 import { RouterLink } from "vue-router";
 import GolPatternVisualisation from "@/components/GolPatternVisualisation.vue"
+import GolButton from "@/components/ui/GolButton.vue"
 
 export default {
-  components: { GolPatternVisualisation },
+  components: { GolPatternVisualisation, GolButton },
   props: {
     pattern: {
       type: Object,
@@ -42,14 +49,16 @@ export default {
     }
   },
   methods: {
-    loadInSimulator(idPattern) {
-      this.$router.push({
-        path: "/simulator",
-        query: {
-          idPattern: idPattern,
-        },
-      });
+    handleDelete(e) {
+      e.preventDefault()
+      e.stopPropagation()
+      this.modalStore.open()
     },
+    handleEdit(e) {
+      e.preventDefault()
+      e.stopPropagation()
+      this.$router.push(`/admin/patterns/${this.pattern.id}/edit`)
+    }
   },
   computed: {
     ...mapStores(useModalStore),

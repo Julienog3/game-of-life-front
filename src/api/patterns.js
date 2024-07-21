@@ -25,3 +25,12 @@ export async function createPattern(payload) {
     body: JSON.stringify(payload)
   })
 }
+
+export async function deletePattern() {
+  if (!id) {
+    throw new Error('No id provided.')
+  }
+
+    const url = new URL(`api/patterns/${id}`, BASE_URL)
+  return await fetch(url, { method: 'DELETE' })
+}
