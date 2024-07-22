@@ -72,11 +72,6 @@ const router = createRouter({
       beforeEnter: isAuthenticated,
       children: [
         {
-          path: '',
-          name: 'dashboard',
-          component: AdminDashboardView,
-        },
-        {
           path: 'patterns',
           name: 'patterns',
           component: AdminPatternListView,

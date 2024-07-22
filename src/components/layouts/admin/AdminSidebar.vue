@@ -1,12 +1,11 @@
 <template>
   <aside class="sticky top-0 left-0 h-screen w-[300px] bg-primary text-white flex flex-col content-between">
-    <router-link
+    <div
       class="h-16 px-4 flex items-center gap-4 border-b border-gray-200/30"
-      to="/admin"
     >
       <img src="/svg/dashboard.svg" alt="Dashboard icon" />
       <p class="text-base">Administration</p>
-    </router-link>
+    </div>
         <div class="flex flex-col gap-2 p-4">
           <AdminNavItem
             to="/admin/patterns"

@@ -33,7 +33,7 @@ export default {
       this.$router.push('/login')
     },
     navigateToAdmin() {
-      this.$router.push('/admin')
+      this.$router.push('/admin/patterns')
     }
   },
   computed: {

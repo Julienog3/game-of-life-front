@@ -45,7 +45,7 @@ export default {
 
       await login(this.credentials)
       
-      return this.$router.push("/admin");
+      return this.$router.push("/admin/patterns");
     },
   },
 }

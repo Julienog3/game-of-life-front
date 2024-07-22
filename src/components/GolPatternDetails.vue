@@ -1,6 +1,8 @@
 <template>
   <div class="flex items-center gap-x-4">
-    <div class="bg-primary rounded min-w-[40px] min-h-[40px]"></div>
+    <div class="bg-borderGray rounded-md w-12 h-12 flex items-center justify-center">
+      <img v-if="urlIcon" :src="urlIcon" alt="" />
+    </div>
     <div>
       <p class="font-bold">{{ title }}</p>
       <p>{{ content }}</p>
@@ -12,7 +14,8 @@
 export default {
   props: {
     title: String,
-    content: String
+    content: String,
+    urlIcon: String
   },
 };
 </script>

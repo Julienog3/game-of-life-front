@@ -1,7 +1,9 @@
 <template>
   <RouterLink :to="{ name: 'pattern_details', params: { id: pattern.id } }">
     <article class="flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow transition ease-in-out">
-      <GolPatternVisualisation :pattern="pattern"/>
+      <div class="flex items-center justify-center max-h-48 overflow-hidden">
+        <GolPatternVisualisation :pattern="pattern"/>
+      </div>
       <div class="flex flex-col gap-2 p-4">
         <span class="bg-primarydark text-white px-4 py-2 rounded-full w-fit text-sm">
           {{ pattern.configuration.name }}

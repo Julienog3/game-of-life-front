@@ -35,8 +35,8 @@ export default {
   },
   mounted() {
     //On cherche a savoir le ration de la taille des cases
-    const maxWidth = 250;
-    const maxHeight = 250;
+    const maxWidth = 400;
+    const maxHeight = 400;
 
     //On regarde si le pattern n'est pas carré afin de le rendre carré
     let regulateWidth = 0;

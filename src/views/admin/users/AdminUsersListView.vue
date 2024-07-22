@@ -1,16 +1,16 @@
 <template>
   <GolModal title="Supprimer un utilisateur">
     <template #main>
-      <p>Êtes-vous sûr de vouloir supprimer ce utilisateur ?</p>
+      <p>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</p>
     </template>
     <template #footer>
-      <button @click="removeUser">Supprimer</button>
+      <GolButton variant="danger" @click="removeUser">Supprimer</GolButton>
     </template>
   </GolModal>
   <AdminBreadcrumb page="Utilisateurs" />
   <AdminTitlePage
     title="Utilisateurs"
-    description="Lorem ipsum dolores sit amet"
+    description="Retrouvez la liste des tous les utilisateurs de la plateforme."
     textBtn="utilisateur"
     url="users/new"
   />
@@ -25,6 +25,7 @@ import AdminUsersTable from "@/components/admin/users/AdminUsersTable.vue";
 import GolModal from "@/components/ui/GolModal.vue";
 import { useModalStore } from "@/stores/modal.js";
 import { mapStores } from "pinia";
+import GolButton from "@/components/ui/GolButton.vue";
 
 export default {
   components: {
@@ -32,6 +33,7 @@ export default {
     AdminBreadcrumb,
     AdminUsersTable,
     GolModal,
+    GolButton
   },
   data() {
     return {

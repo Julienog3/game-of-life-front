@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-y-4">
+  <div class="grid gap-y-4 my-12">
     <div class="flex gap-x-4">
       <div class="grid">
         <div v-if="grid" v-for="x in maxLine" :key="x">
@@ -94,7 +94,7 @@ export default {
       isIntervalRunning: false,
       iterations: 0,
       colorCaseDeath: "#FFFFFF",
-      colorCaseInLife: "#FFFF00",
+      colorCaseInLife: "#212121",
       pattern: null,
     };
   },
