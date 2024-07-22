@@ -6,7 +6,7 @@
       </span>
     </th>
     <td class="px-6 py-4">{{ user.email }}</td>
-    <td class="px-6 py-4">date</td>
+    <td class="px-6 py-4">{{ user.createdAt }}</td>
     <td class="flex gap-2 px-6 py-4">
       <GolButton
         variant="secondary"

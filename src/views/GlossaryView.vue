@@ -1,9 +1,11 @@
 <template>
+  <section class="max-w-[1280px] mx-auto px-8 my-8">
   <div class="flex flex-col mb-4 w-full border-b py-4">
     <h2 class="font-bold text-4xl">Glossaire</H2>
     <p>Retrouvez l'ensemble des patterns du wiki.</p>
   </div>
-  <GolPatternsList :patterns="patterns" />
+    <GolPatternsList :patterns="patterns" />
+  </section>
 </template>
 
 <script>

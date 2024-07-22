@@ -7,7 +7,9 @@
         :key="j"
         @click="toggleCell(i, j)"
       >
-        <span v-show="cell" class="bg-primary w-10 h-10 p-4 rounded-md"></span>
+        <Transition>
+          <span v-show="cell" class="bg-primary w-10 h-10 p-4 rounded-md"></span>
+        </Transition>
       </span>
     </div>
   </div>
@@ -64,6 +66,17 @@ export default {
       return flatten2DArray(this.grid)
     }
   }
-  
 }
 </script>
+
+<style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity .25s ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+</style>

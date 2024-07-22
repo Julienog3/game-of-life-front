@@ -4,13 +4,13 @@
       <p>Êtes-vous sûr de vouloir supprimer ce type ?</p>
     </template>
     <template #footer>
-      <button @click="removeConfiguration">Supprimer</button>
+      <GolButton variant="danger" @click="removeConfiguration">Supprimer</GolButton>
     </template>
   </GolModal>
   <AdminBreadcrumb page="Types" />
   <AdminTitlePage
     title="Types"
-    description="Lorem ipsum dolores sit amet"
+    description="Gérer l'ensemble des types de configuration de patterns."
     textBtn="type"
     url="types/new"
   />
@@ -31,6 +31,7 @@ import AdminConfigurationsList from "@/components/admin/configurations/AdminConf
 import GolModal from "@/components/ui/GolModal.vue";
 import { useModalStore } from "@/stores/modal.js";
 import { mapStores } from "pinia";
+import GolButton from "@/components/ui/GolButton.vue";
 
 export default {
   components: {
@@ -38,6 +39,7 @@ export default {
     AdminBreadcrumb,
     AdminConfigurationsList,
     GolModal,
+    GolButton,
   },
   data() {
     return {

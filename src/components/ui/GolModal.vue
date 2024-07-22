@@ -7,10 +7,12 @@
       >
         <dialog class="flex flex-col bg-white min-w-96 rounded-md">
           <header
-            class="flex item-center p-4 justify-between border-b border-gray-300"
+            class="flex items-center p-4 justify-between border-b border-gray-300 "
           >
             <h2 class="font-semibold text-xl">{{ title }}</h2>
-            <button @click="modalStore.close">Fermer</button>
+            <GolButton variant="secondary" @click="modalStore.close">
+              <img src="/svg/cross.svg" />
+            </GolButton>
           </header>
           <main class="p-4">
             <slot name="main"></slot>
@@ -27,8 +29,10 @@
 <script>
 import { useModalStore } from "@/stores/modal";
 import { mapStores } from "pinia";
+import GolButton from "./GolButton.vue";
 
 export default {
+  components: { GolButton },
   props: {
     title: {
       type: String,

@@ -1,6 +1,6 @@
 <template>
-  <AdminBreadcrumb :page="'Types'" />
-  <AdminTitlePage :title="'Types'" :description="'Lorem ipsum dolores sit amet'" :textBtn="'type'" />
+  <AdminBreadcrumb page="Types" />
+  <AdminTitlePage title="Types" description="Gérer l'ensemble des types de configuration de patterns." textBtn="type" />
 </template>
 
 <script>

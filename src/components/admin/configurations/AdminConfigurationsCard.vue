@@ -1,6 +1,6 @@
 <template>
   <article
-    class="relative flex items-center justify-center bg-white border border-gray-300 rounded min-h-60"
+    class="relative flex items-center justify-center bg-white border border-gray-300 rounded min-h-60 bg-[url('/img/grid-pattern.png')]"
   >
     <h3 class="font-bold text-xl">{{ configuration.name }}</h3>
     <div class="absolute bottom-2 right-2 flex gap-2">

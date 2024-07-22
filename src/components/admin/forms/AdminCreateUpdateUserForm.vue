@@ -2,16 +2,18 @@
   <div class="flex">
     <form class="flex flex-col gap-4 items-start">
       <div class="flex flex-col gap-2 items-start">
-        <label class="font-medium">Nom</label>
+        <label class="font-medium">E-mail</label>
         <input
+          type="email"
           class="border border-gray-200 rounded p-2"
           v-model="newUser.email"
           placeholder="john@doe.fr"
         />
       </div>
-      <div class="flex flex-col gap-2 items-start">
+      <div v-if="!user" class="flex flex-col gap-2 items-start">
         <label class="font-medium">Mot de passe</label>
         <input
+          type="password"
           class="border border-gray-200 rounded p-2"
           v-model="newUser.password"
           placeholder="Entrez un mot de passe"

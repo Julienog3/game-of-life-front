@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <div
       v-if="pattern.pattern"
       v-for="indexLine in pattern.pattern.length"
