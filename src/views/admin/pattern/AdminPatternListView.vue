@@ -10,7 +10,7 @@
   <AdminBreadcrumb page="Patterns" />
   <AdminTitlePage
     title="Patterns"
-    description="Lorem ipsum dolores sit amet"
+    description="Retrouvez l'ensemble des patterns du wiki."
     textBtn="pattern"
     url="/admin/patterns/new"
   />
