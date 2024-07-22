@@ -12,7 +12,7 @@ export async function login(payload) {
     },
     body: JSON.stringify(payload)
   }).then((res) => res.json()).then(({ jwtToken }) => {
-      Cookies.set('jwtToken', jwtToken, { path: '/', domain: '127.0.0.1', expires: 7 });
+    Cookies.set('jwtToken', jwtToken, { path: '/', domain: '127.0.0.1', expires: 7 });
   })
 }
 

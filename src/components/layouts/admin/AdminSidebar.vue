@@ -1,5 +1,5 @@
 <template>
-  <aside class="h-screen w-[300px] bg-primary text-white flex flex-col content-between">
+  <aside class="sticky top-0 left-0 h-screen w-[300px] bg-primary text-white flex flex-col content-between">
     <router-link
       class="h-16 px-4 flex items-center gap-4 border-b border-gray-200/30"
       to="/admin"

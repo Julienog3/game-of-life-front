@@ -36,6 +36,7 @@ export async function updateConfiguration(id, payload) {
 
   return await fetch(url, {
     method: 'PUT',
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -49,5 +50,5 @@ export async function deleteConfiguration(id) {
   }
 
   const url = new URL(`api/configurations/${id}`, BASE_URL)
-  return await fetch(url, { method: 'DELETE' })
+  return await fetch(url, { method: 'DELETE', credentials: 'include' })
 }

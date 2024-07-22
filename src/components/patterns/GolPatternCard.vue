@@ -57,7 +57,7 @@ export default {
     handleEdit(e) {
       e.preventDefault()
       e.stopPropagation()
-      this.$router.push(`/admin/patterns/${this.pattern.id}/edit`)
+      this.$router.push({ name: 'patterns_update', params: { id: this.pattern.id } })
     }
   },
   computed: {

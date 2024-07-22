@@ -1,6 +1,6 @@
 <template>
   <GolHeader />
-  <main class="grid grid-cols-12">
+  <main class="grid grid-cols-12 bg-bgGray">
     <div class="col-start-2 col-span-10">
       <RouterView />
     </div>

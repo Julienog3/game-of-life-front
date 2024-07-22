@@ -1,9 +1,9 @@
 <template>
-  <AdminBreadcrumb :page="'Types'" />
+  <AdminBreadcrumb page="Types" />
   <AdminTitlePage
-    :title="'Types'"
-    :description="'Lorem ipsum dolores sit amet'"
-    :textBtn="'type'"
+    title="Types"
+    description="Lorem ipsum dolores sit amet"
+    textBtn="type"
   />
   <AdminCreateUpdateConfigurationForm
     v-if="configuration"

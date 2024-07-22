@@ -8,17 +8,17 @@
     <td class="px-6 py-4">{{ user.email }}</td>
     <td class="px-6 py-4">date</td>
     <td class="flex gap-2 px-6 py-4">
-      <router-link
-        :to="{ name: 'users_update', params: { id: user.id } }"
+      <GolButton
+        variant="secondary"
+        @click="navigateToUpdate"
       >
-        <button class="border border-gray-300 rounded w-8 h-8">M</button>
-      </router-link>
-      <button
-        @click="modalStore.open({ id: user.id })"
-        class="bg-black text-white rounded w-8 h-8"
+        <img src="/svg/edit.svg" />
+      </GolButton>
+      <GolButton
+        @click="openDeleteModal"
       >
-        S
-      </button>
+        <img src="/svg/trash.svg" />
+      </GolButton>
     </td>
   </tr>
 </template>
@@ -26,13 +26,23 @@
 <script>
 import { useModalStore } from "@/stores/modal.js";
 import { mapStores } from "pinia";
+import GolButton from "../../ui/GolButton.vue";
 
 export default {
+  components: { GolButton },
   props: {
     user: {
       type: Object,
       required: true,
     },
+  },
+  methods: {
+    navigateToUpdate() {
+      this.$router.push({ name: 'users_update', params: { id: this.user.id } })
+    },
+    openDeleteModal() {
+      this.modalStore.open({ id: this.user.id })
+    }
   },
   computed: {
     ...mapStores(useModalStore),

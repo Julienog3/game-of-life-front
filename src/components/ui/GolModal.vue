@@ -15,7 +15,7 @@
           <main class="p-4">
             <slot name="main"></slot>
           </main>
-          <footer class="border-t border-gray-300 p-4">
+          <footer class="p-4">
             <slot name="footer"></slot>
           </footer>
         </dialog>

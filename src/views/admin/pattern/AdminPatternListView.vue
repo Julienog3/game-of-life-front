@@ -15,7 +15,7 @@
     url="/admin/patterns/new"
   />
 
-  <GolPatternsList :patterns="patterns" :isAdmin="true" />
+  <GolPatternsList v-if="patterns" :patterns="patterns" :isAdmin="true" />
 </template>
 
 <script>

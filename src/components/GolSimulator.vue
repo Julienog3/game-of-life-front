@@ -6,12 +6,13 @@
           <div class="flex">
             <div v-for="y in maxCol" :key="y">
               <GolCase
-                  :x="`${x-1}`"
-                  :y="`${y-1}`"
-                  :inLife="grid[x-1][y-1]"
-                  :colorCaseDeath="colorCaseDeath"
-                  :colorCaseInLife="colorCaseInLife"
-                  :handleClick="handleClick"></GolCase>
+                :x="`${x-1}`"
+                :y="`${y-1}`"
+                :inLife="grid[x-1][y-1]"
+                :colorCaseDeath="colorCaseDeath"
+                :colorCaseInLife="colorCaseInLife"
+                :handleClick="handleClick" 
+              />
             </div>
           </div>
         </div>
@@ -78,7 +79,8 @@
 
 <script>
 import GolCase from './GolCase.vue'
-import patternJSON from "@/data/pattern.json";
+import { findPattern } from "@/api/patterns.js"
+import { create2DArrayFromFlatArray } from "@/helpers/index.js"
 
 export default {
   props: {
@@ -96,31 +98,24 @@ export default {
       pattern: null,
     };
   },
-  mounted() {
+  async mounted() {
     this.grid = Array.from({ length: this.maxLine }, () => Array.from({ length: this.maxCol }).fill(false));
-    if(this.$route.query.idPattern){
-      const idPattern = this.$route.query.idPattern;
-      this.pattern = patternJSON.patterns.filter(pattern=>pattern.id === parseInt(idPattern))[0];
 
-      //On formate le pattern
-      let position=0;
-      let pattern2D=[];
-      for (let i=0;i<this.pattern.line;i++){
-        let line = [];
-        for (let j=0;j<this.pattern.col;j++){
-          line.push(!!this.pattern.pattern[position]);
-          position++;
-        }
-        pattern2D.push(line);
-      }
-      this.pattern.pattern = pattern2D;
+    if (this.$route.query.idPattern){
+      const idPattern = this.$route.query.idPattern;
+      await this.fetchPattern(idPattern)
+
+      const { boundingX, boundingY } = this.pattern
+      
+      this.pattern.pattern = create2DArrayFromFlatArray(this.pattern.pattern, boundingX, boundingY);
+      console.log(this.pattern.pattern)
 
       //On cherche la position afin de centrer le patten chargé
-      const postionLine = Math.round((this.maxLine-this.pattern.line)/2);
-      const postionCol = Math.round((this.maxCol-this.pattern.col)/2);
+      const postionLine = Math.round((this.maxLine - this.pattern.boundingX)/2);
+      const postionCol = Math.round((this.maxCol-this.pattern.boundingY)/2);
 
-      for (let i=0;i<this.pattern.line;i++){
-        for (let j=0;j<this.pattern.col;j++){
+      for (let i=0;i<this.pattern.boundingX;i++){
+        for (let j=0;j<this.pattern.boundingY;j++){
           this.grid[i+postionLine][j+postionCol] = this.pattern.pattern[i][j];
         }
       }
@@ -140,7 +135,7 @@ export default {
     },
     reset() {
       this.grid = Array.from({ length: this.maxLine }, () => Array.from({ length: this.maxCol }).fill(false));
-      if(this.isIntervalRunning){
+      if (this.isIntervalRunning) {
         this.stopInterval();
       }
       this.iterations = 0;
@@ -168,6 +163,9 @@ export default {
       this.grid = gridNow;
       this.iterations++;
     },
+    async fetchPattern(id) {
+      this.pattern = await findPattern(id)
+    }
   },
   components: {
     GolCase

@@ -20,9 +20,9 @@ import AdminLayout from '@/components/layouts/AdminLayout.vue'
 import AdminUsersNewView from "../views/admin/users/AdminUsersNewView.vue"
 import AdminUsersUpdateView from "../views/admin/users/AdminUsersUpdateView.vue"
 import PatternView from '../views/PatternView.vue'
+import AdminPatternUpdateView from '../views/admin/pattern/AdminPatternUpdateView.vue'
 
 const isAuthenticated = (to, from, next) => {
-  console.log('tezrf', Cookies.get('jwtToken'))
  if (Cookies.get('jwtToken')) {
    next();
    return;
@@ -83,8 +83,13 @@ const router = createRouter({
         },
         {
           path: 'patterns/new',
-          name: 'pattern_new',
+          name: 'patterns_new',
           component: AdminPatternNewView,
+        },
+        {
+          path: 'patterns/:id/update',
+          name: 'patterns_update',
+          component: AdminPatternUpdateView,
         },
         {
           path: 'types',

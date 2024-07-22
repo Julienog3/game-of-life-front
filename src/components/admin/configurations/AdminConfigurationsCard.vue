@@ -1,6 +1,6 @@
 <template>
   <article
-    class="relative flex items-center justify-center bg-white border border-gray-300 rounded min-h-44"
+    class="relative flex items-center justify-center bg-white border border-gray-300 rounded min-h-60"
   >
     <h3 class="font-bold text-xl">{{ configuration.name }}</h3>
     <div class="absolute bottom-2 right-2 flex gap-2">
@@ -31,12 +31,12 @@ export default {
     handleDelete(e) {
       e.preventDefault()
       e.stopPropagation()
-      modalStore.open({ id: configuration.id })
+      this.modalStore.open({ id: this.configuration.id })
     },
     handleEdit(e) {
       e.preventDefault()
       e.stopPropagation()
-      this.$router.push(`/admin/configurations/${this.configuration.id}/update`)
+      this.$router.push({ name: 'types_update', params: { id: this.configuration.id } })
     }
   },
   computed: {
